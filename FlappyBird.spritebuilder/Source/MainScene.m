@@ -61,7 +61,7 @@
 
 #pragma mark - Touch Handling
 
-- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     if (!_gameOver) {
         [character.physicsBody applyAngularImpulse:10000.f];
         _sinceTouch = 0.f;
@@ -158,7 +158,7 @@
     for (CCNode *bush in _bushes) {
         // move the bush
         bush.position = ccp(bush.position.x -
-                            (character.physicsBody.velocity.x * 2 * delta), bush.position.y);
+                            (character.physicsBody.velocity.x * delta), bush.position.y);
         
         // if the left corner is one complete width off the screen,
         // move it to the right
@@ -173,7 +173,7 @@
         // move the cloud
         cloud.position = ccp(cloud.position.x -
                              (character.physicsBody.velocity.x * delta), cloud.position.y);
-        
+
         // if the left corner is one complete width off the screen,
         // move it to the right
         if (cloud.position.x <= (-1 * cloud.contentSize.width)) {
