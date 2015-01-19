@@ -158,7 +158,7 @@
     for (CCNode *bush in _bushes) {
         // move the bush
         bush.position = ccp(bush.position.x -
-                            (character.physicsBody.velocity.x * delta), bush.position.y);
+                            (character.physicsBody.velocity.x * 2 * delta), bush.position.y);
         
         // if the left corner is one complete width off the screen,
         // move it to the right
